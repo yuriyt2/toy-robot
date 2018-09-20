@@ -1,0 +1,58 @@
+Results from running tests:
+
+RobotController
+  create controller
+    new controller with 5x5 table and robot named Timmy
+      returns robot name, max length and max height
+  receive commands
+    receive command TEST TEST
+      returns TEST TEST in split array
+  execute commands with placed robot and report only
+    receive command PLACE 1,2,NORTH REPORT
+      returns 1,2,NORTH
+  execute commands with placed robot and rotate move commands
+    receive command PLACE 1,2,NORTH LEFT MOVE MOVE LEFT MOVE MOVE REPORT
+      returns 0,0,SOUTH
+  execute commands with robot placed twice
+    receive command PLACE 1,2,NORTH LEFT MOVE PLACE 4,2,EAST REPORT
+      returns 4,2,EAST
+  execute commands with robot not placed
+    receive commands LEFT RIGHT MOVE REPORT without placing robot
+      returns nil
+
+Robot
+  make robot
+    creates new robot with name Timmy
+      return Timmy
+  change robot's direction on table L
+    give a robot direction NORTH then turn LEFT
+      returns WEST
+  change robot's direction on table R
+    give a robot direction WEST then turn RIGHT
+      returns NORTH
+
+Table
+  create 5x4 table
+    max height and length set to size of table
+      returns max h/l of 5,4
+  place a robot in valid table position
+    place robot Timmy at 2,3
+      returns coordinates 2,3
+  place a robot in invalid table position
+    try to place robots at positions outside table on all 4 dimensions
+      table robot_position returns empty hash (no robots placed)
+  move robot within table N/E
+    robot placed on 2,3 move 1 move north and 1 move east
+      returns new coordinates 3,4
+  move robot within table S/W
+    robot placed on 2,3 move 1 move south and 1 move west
+      returns new coordinates 1,2
+  move robot off table N/E
+    robot placed on 5,5 move 1 move north and 1 move east
+      returns same coordinates, 5,5
+  move robot off table S/W
+    robot placed on 0,0 move 1 move south and 1 move west
+      returns same coordinates, 5,5
+
+Finished in 0.02364 seconds (files took 0.56818 seconds to load)
+16 examples, 0 failures
