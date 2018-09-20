@@ -34,4 +34,5 @@ c) PLACE 1,2,EAST MOVE MOVE LEFT MOVE REPORT Output: 3,3,NORTH
 * Requires Ruby + Bundler
 * Clone the current repo
 * Bundle install
+* Run ruby robot_program.rb to test out the robot with above commands
 * Run bundle exec rspec (with optional --format documentation flag) to run the tests
